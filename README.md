@@ -61,9 +61,7 @@ nano .env
 ```
 **Required format for `.env`:**
 ```
-PRIVATE_KEY_1="0xYourFirstPrivateKey"
-PRIVATE_KEY_2="0xYourSecondPrivateKey"
-# Add more wallets on new lines
+PRIVATE_KEYS=0xkey1,0xkey2,0xkey3
 ```
 
 **4. Configure Proxies (Optional)**
