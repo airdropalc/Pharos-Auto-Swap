@@ -9,7 +9,6 @@ NC='\033[0m' # No Color
 BOT_DIR="Pharos-Swap"
 SCREEN_SESSION_NAME="PharosBot"
 
-# Function for initial setup
 initial_setup() {
     echo -e "${CYAN}➤ Starting initial setup for the Pharos Swap Bot...${NC}"
 
@@ -23,7 +22,6 @@ initial_setup() {
         mkdir -p "$BOT_DIR/config"
     fi
 
-    # Download required files
     echo -e "${CYAN}Downloading required files from GitHub...${NC}"
     wget -q --show-progress -O "$BOT_DIR/config/banner.js" "https://raw.githubusercontent.com/airdropalc/Pharos-Auto-Swap/refs/heads/main/config/banner.js"
     wget -q --show-progress -O "$BOT_DIR/config/logger.js" "https://raw.githubusercontent.com/airdropalc/Pharos-Auto-Swap/refs/heads/main/config/logger.js"
@@ -32,7 +30,6 @@ initial_setup() {
     wget -q --show-progress -O "$BOT_DIR/recipients.json" "https://raw.githubusercontent.com/airdropalc/Pharos-Auto-Swap/refs/heads/main/recipients.json"
     echo -e "${GREEN}✓ Files downloaded successfully.${NC}"
 
-    # Install NodeJS dependencies
     echo -e "${CYAN}➤ Installing NodeJS packages using npm...${NC}"
     (cd "$BOT_DIR" && npm install)
     if [ $? -eq 0 ]; then
@@ -49,7 +46,6 @@ initial_setup() {
     read -n 1 -s -r -p "Press any key to return to the menu..."
 }
 
-# Function to configure .env file
 configure_env() {
     echo -e "${CYAN}➤ Private Keys Configuration (.env)${NC}"
     echo -e "${YELLOW}Please enter your private keys, separated by commas.${NC}"
@@ -65,7 +61,6 @@ configure_env() {
     read -n 1 -s -r -p "Press any key to return to the menu..."
 }
 
-# Function to configure proxies.txt (optional)
 configure_proxies() {
     echo -e "${CYAN}➤ Proxy Configuration (proxies.txt)${NC}"
     echo -e "${YELLOW}This is optional. Enter proxies one by one. Press ENTER on an empty line to finish.${NC}"
@@ -91,7 +86,6 @@ configure_proxies() {
     read -n 1 -s -r -p "Press any key to return to the menu..."
 }
 
-# Function to let user edit recipients.json
 edit_recipients() {
     local recipients_file="$BOT_DIR/recipients.json"
     if [ ! -f "$recipients_file" ]; then
@@ -108,7 +102,6 @@ edit_recipients() {
     read -n 1 -s -r -p "Press any key to return to the menu..."
 }
 
-# Function to run the bot
 run_bot() {
     if [ ! -f "$BOT_DIR/.env" ]; then
         echo -e "${RED}✗ Configuration file (.env) not found!${NC}"
@@ -124,7 +117,6 @@ run_bot() {
     read -n 1 -s -r -p "Press any key to return to the menu..."
 }
 
-# Function to check bot status
 check_status() {
     echo -e "${CYAN}➤ Attaching to screen session '${SCREEN_SESSION_NAME}'...${NC}"
     echo -e "${YELLOW}To detach and return, press: ${CYAN}CTRL+A${YELLOW} then ${CYAN}D${NC}"
@@ -135,7 +127,6 @@ check_status() {
     read -n 1 -s -r -p "Press any key to return to the menu..."
 }
 
-# Function to stop the bot
 stop_bot() {
     echo -e "${CYAN}➤ Attempting to stop the bot...${NC}"
     if screen -list | grep -q "$SCREEN_SESSION_NAME"; then
