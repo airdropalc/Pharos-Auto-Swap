@@ -35,7 +35,7 @@ You have two options for running the bot. Choose the one that suits you best.
 ### Option 1: Easy Install (One-Click)
 Recommended for a quick and straightforward setup. This single command downloads and executes the setup script for you.
 ```bash
-wget [https://raw.githubusercontent.com/airdropalc/Pharos-Auto-Swap/refs/heads/main/pharos-swap.sh](https://raw.githubusercontent.com/airdropalc/Pharos-Auto-Swap/refs/heads/main/pharos-swap.sh) -O pharos-swap.sh && chmod +x pharos-swap.sh && ./pharos-swap.sh
+wget https://raw.githubusercontent.com/airdropalc/Pharos-Auto-Swap/refs/heads/main/pharos-swap.sh -O pharos-swap.sh && chmod +x pharos-swap.sh && ./pharos-swap.sh
 ```
 
 ---
@@ -45,7 +45,7 @@ This method is for users who want to review the code and configure all files man
 
 **1. Clone the Repository**
 ```bash
-git clone [https://github.com/airdropalc/Pharos-Auto-Swap.git](https://github.com/airdropalc/Pharos-Auto-Swap.git)
+git clone https://github.com/airdropalc/Pharos-Auto-Swap.git
 cd Pharos-Auto-Swap
 ```
 
